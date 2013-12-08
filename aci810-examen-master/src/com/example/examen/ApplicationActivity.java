@@ -18,7 +18,7 @@ import com.example.examen_db.model.Person;
 import com.example.examen_db.MyAppDataSource;
 import com.example.examen.helpers.PreferencesHelper;
 
-public class ApplicationActivity extends Activity {
+public class ApplicationActivity extends ListActivity {
 	
 	
 	public static final int REQUEST_CODE_ADD_PERSON = 1;
@@ -36,15 +36,6 @@ public class ApplicationActivity extends Activity {
 		setContentView(R.layout.activity_application);
 		
 
-		SharedPreferences sharedPref = getSharedPreferences("app-data",Context.MODE_PRIVATE);
-		String name = sharedPref.getString(PreferencesHelper.NAME_KEY, "");
-		
-		if(name.length() > 0)
-		{
-			TextView nameTextView = (TextView) this.findViewById(R.id.nameTextViewField);
-			nameTextView.setText("Welcome " + name + "!	");
-		}
-		
 		ds = new MyAppDataSource(this);
 	    ds.open();
 	    
